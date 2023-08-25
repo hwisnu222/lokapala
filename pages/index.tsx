@@ -1,118 +1,322 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import React from "react";
+import Image from "next/image";
+import { Archivo, Work_Sans } from "next/font/google";
+import { FaBars, FaXmark } from "react-icons/fa6";
 
-const inter = Inter({ subsets: ['latin'] })
+const archivo = Archivo({ subsets: ["latin"] });
+const work = Work_Sans({ subsets: ["latin"] });
+
+import Logo from "@/assets/logo.png";
+import LokapalaLogo from "@/assets/lokapala-logo.png";
+import clsx from "clsx";
+
+const workSansFont = (classname: string) => {
+  return clsx(work.className, classname);
+};
+const archivoFont = (classname: string) => {
+  return clsx(archivo.className, classname);
+};
+
+const Container = (props: any) => {
+  return (
+    <div
+      {...props}
+      className={`container mx-auto px-10 md:px-20 ${props.className}`}
+    >
+      {props.children}
+    </div>
+  );
+};
 
 export default function Home() {
+  const [drawer, setDrawer] = React.useState(false);
+
+  const handleDrawer = () => {
+    setDrawer((prev: boolean) => !prev);
+  };
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <main className="w-100vw">
+      {/* header desktop */}
+      <header className="hidden md:block py-4 bg-gray-950 sticky top-0 z-50 shadow-md">
+        <Container className="flex justify-between items-center">
+          <h3>
+            <Image src={Logo} fill={false} width={200} alt="logo" />
+          </h3>
+          <ul className="flex justify-between items-center gap-4 font-extrabold uppercase">
+            <li>Game</li>
+            <li>ksatriya</li>
+            <li>news</li>
+            <li>support</li>
+          </ul>
+        </Container>
+      </header>
+
+      {/* header mobile */}
+      <header className="bg-gray-950  md:hidden sticky top-0 z-30">
+        <Container className="flex justify-between items-center">
+          <div></div>
+          <h3>
+            <Image src={LokapalaLogo} fill={false} height={80} alt="logo" />
+          </h3>
+          <div>
+            <FaBars
+              className="text-4xl text-orange-400 cursor-pointer"
+              onClick={handleDrawer}
             />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          </div>
+        </Container>
+      </header>
+      {/* drawer */}
+      <div
+        className={`md:hidden block drawer fixed top-0 right-0  w-5/6 bg-gray-950 z-[100] p-14 border border-orange-500 m-2 ${
+          drawer ? "" : "-mr-[100%]"
+        }`}
+      >
+        <FaXmark
+          className="text-5xl absolute top-4 right-4 cursor-pointer"
+          onClick={handleDrawer}
         />
+        <div className="flex justify-center items-center mb-8">
+          <Image src={LokapalaLogo} fill={false} height={90} alt="logo" />
+        </div>
+        <ul className="flex flex-col items-end gap-4 ">
+          <li className="font-extrabold text-2xl uppercase hover:text-orange-500">
+            Updated
+          </li>
+          <li className="font-extrabold text-2xl uppercase hover:text-orange-500">
+            game
+          </li>
+          <li className="font-extrabold text-2xl uppercase hover:text-orange-500">
+            ksatriya
+          </li>
+          <li className="font-extrabold text-2xl uppercase hover:text-orange-500">
+            events
+          </li>
+          <li className="font-extrabold text-2xl uppercase hover:text-orange-500">
+            supports
+          </li>
+        </ul>
+      </div>
+      <div className="relative">
+        <div className="overlay-top absolute top-0 w-full h-full"></div>
+
+        <video
+          autoPlay
+          muted
+          loop
+          className="w-screen absolute top-0 left-0 -z-20 h-[900px] object-cover contrast-125"
+        >
+          <source src="/play.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <Container className=" py-12 md:h-[700px]">
+        <div className="mt-20 text-center flex flex-col items-center md:items-start  md:text-left z-10 md:w-5/6">
+          <h3 className="font-extrabold text-8xl uppercase drop-shadow-2xl">
+            lokapala
+          </h3>
+          <h5 className={archivoFont("text-4xl uppercase font-extrabold mb-7")}>
+            SAGA OF THE SIX REALMS
+          </h5>
+          <p className={workSansFont("text-lg opacity-70 mb-48 md:w-1/2")}>
+            The battle to decide the fate of The Six Realms has begun. Who will
+            emerge victorious and rewrite the future of mankind and beyond?
+          </p>
+          <div className="flex gap-4 md:flex-row flex-col items-center uppercase font-extrabold text-xl">
+            <p>tersedia di</p>
+            <div className="flex gap-2 items-center">
+              <div className="cursor-pointer ">
+                <img src="/google.png" alt="" />
+              </div>
+              <div className="cursor-pointer ">
+                <img src="/app-store.png" alt="" />
+              </div>
+            </div>
+            <p>bergabung di</p>
+            <div className="cursor-pointer ">
+              <img src="/discord.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      {/* image */}
+      <div></div>
+      <div className="part-1 py-32 bg-cover object-cover w-full">
+        <Container className="grid md:grid-cols-3 gap-4 mb-20">
+          {Array.from({ length: 3 }).map((_, index: number) => (
+            <div
+              key={index}
+              className="p-[2px] bg-gray-500 hover:bg-orange-500 event-slide-border cursor-pointer relative"
+            >
+              <div className="event-slide relative">
+                <div className="absolute right-2 top-2 bg-orange-500 px-5 border border-gray-300 rounded-sm">
+                  Event
+                </div>
+                <img src="/thumbnail/event-slide.png" alt="" />
+                <div className="absolute bottom-8 left-8">
+                  <p>May 8, 2022 // Events</p>
+                  <h3 className="font-extrabold text-2xl uppercase ">hello</h3>
+                  <p className="hidden event-desc w-10/12">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Perferendis, dolor?
+                  </p>
+                </div>
+              </div>
+              <div className="overlay-slide hidden absolute z-10 top-0 left-0 h-full w-full"></div>
+            </div>
+          ))}
+        </Container>
+        <Container className=" grid md:grid-cols-2 items-center  gap-6">
+          <div className="flex justify-center flex-col">
+            <h3
+              className={archivoFont("uppercase font-extrabold text-7xl mb-6")}
+            >
+              WELCOME TO SVAKA LOKAPALA!
+            </h3>
+            <p className={workSansFont("md:w-3/4")}>
+              Be the chosen Ksatriya and decide the fate of the realms!
+              Experience the first MOBA in South East Asia: Lokapala! Developed
+              by Indonesian game developer, Anantarupa Studios.
+            </p>
+          </div>
+          <div className="flex justify-center items-center">
+            <div className="p-4 frame-youtube w-full">
+              <iframe
+                className="h-[400px]"
+                title="YouTube video player"
+                width="100%"
+                height="900px"
+                src="https://www.youtube.com/embed/OlX4gHZ4Nw8"
+                id="widget"
+              ></iframe>
+            </div>
+          </div>
+        </Container>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="part-2 relative bg-left md:bg-center  md:object-cover width-full md:-mt-[75px]">
+        {/* <div className="overlay-right absolute top-0 w-full h-full"></div> */}
+        <Container className="grid md:grid-cols-2 gap-6  h-full">
+          <div></div>
+          <div className="flex justify-center pb-16 pt-44 flex-col items-start z-20">
+            <h3
+              className={archivoFont("uppercase font-extrabold text-7xl mb-6")}
+            >
+              what is lokapala?
+            </h3>
+            <p className={workSansFont("mb-8")}>
+              Be the chosen Ksatriya and decide the fate of the realms!
+              Experience the first MOBA in South East Asia: Lokapala! Developed
+              by Indonesian game developer, Anantarupa Studios.
+            </p>
+            <button className="uppercase">what&apos;s more</button>
+          </div>
+        </Container>
       </div>
+
+      <div className="part-3  relative mt-2 md:bg-center bg-right md:bg-no-repeat object-cover  w-full ">
+        <div className="overlay-left absolute top-0 w-full h-full"></div>
+        <Container className="grid md:grid-cols-2 py-20 ">
+          <div className="flex justify-center flex-col items-start z-10">
+            <h3
+              className={archivoFont("uppercase font-extrabold text-7xl mb-6 ")}
+            >
+              FIND OUT ABOUT KSATRIYA!
+            </h3>
+            <p className={workSansFont("mb-8")}>
+              Be the chosen Ksatriya and decide the fate of the realms!
+              Experience the first MOBA in South East Asia: Lokapala! Developed
+              by Indonesian game developer, Anantarupa Studios.
+            </p>
+            <button className="uppercase">what&apos;s more</button>
+          </div>
+          <div></div>
+        </Container>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-2">
+        {Array.from({ length: 2 }).map((_, index) => (
+          <div className="news hover:border-orange-500 border my-2" key={index}>
+            <div className="overflow-hidden">
+              <img src="/thumbnail/cat.png" alt="" className="origin-center" />
+            </div>
+            <div className="text-center p-6">
+              <h3 className="uppercase font-extrabold text-3xl">Hot update</h3>
+              <p className={workSansFont("opacity-75")}>
+                Found out various info related to in-game Lokapala here!
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <footer className="border-t border-orange-500 pt-8 bg-cover">
+        <Container>
+          <div className="grid md:grid-cols-4 py-8 gap-16 md:gap4">
+            <div className="flex justify-center items-center w-full">
+              <img src="/logo-footer.png" alt="" className="w-full" />
+            </div>
+            <div className="flex flex-col md:justify-start items-center">
+              <h3 className="mb-6 font-extrabold text-2xl uppercase text-orange-500">
+                menu
+              </h3>
+              <div>
+                <ul>
+                  <li className="py-4 text-xl text-center md:text-left">
+                    Updates
+                  </li>
+                  <li className="py-4 text-xl text-center md:text-left">
+                    Event
+                  </li>
+                  <li className="py-4 text-xl text-center md:text-left">
+                    Ksatriya
+                  </li>
+                  <li className="py-4 text-xl text-center md:text-left">
+                    Support
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-col items-center md:items-start">
+              <h3 className=" mb-6 font-extrabold text-2xl uppercase text-orange-500">
+                Install App
+              </h3>
+              <div className="flex flex-col gap-2 justify-start items-start">
+                <div className="cursor-pointer ">
+                  <img src="/google.png" alt="" />
+                </div>
+                <div className="cursor-pointer ">
+                  <img src="/app-store.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-2 justify-center md:justify-start">
+              <div className="icon-wrap">
+                <img src="/icon-social/facebook.png" alt="" />
+              </div>
+              <div className="icon-wrap">
+                <img src="/icon-social/instagram.png" alt="" />
+              </div>
+              <div className="icon-wrap">
+                <img src="/icon-social/discord.png" alt="" />
+              </div>
+              <div className="icon-wrap">
+                <img src="/icon-social/youtube.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="py-6 border-t border-orange-500 flex md:flex-row flex-col items-center gap-4 justify-between">
+            <span>
+              Copyright © 2022 Anantarupa Studios. All Rights Reserved.
+            </span>
+            <ul className="flex gap-4">
+              <li>Terms of Use</li>
+              <li>Privacy Policy</li>
+            </ul>
+          </div>
+        </Container>
+      </footer>
     </main>
-  )
+  );
 }
