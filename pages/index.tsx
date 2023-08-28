@@ -10,6 +10,8 @@ import Logo from "@/assets/logo.png";
 import LokapalaLogo from "@/assets/lokapala-logo.png";
 import clsx from "clsx";
 
+const iosPlatform = ["iPhone", "iPad", "iPod"];
+
 const workSansFont = (classname: string) => {
   return clsx(work.className, classname);
 };
@@ -17,21 +19,30 @@ const archivoFont = (classname: string) => {
   return clsx(archivo.className, classname);
 };
 
-const Container = (props: any) => {
-  return (
-    <div
-      {...props}
-      className={`container mx-auto px-10 md:px-20 ${props.className}`}
-    >
-      {props.children}
-    </div>
-  );
-};
-
 export default function Home() {
   const [drawer, setDrawer] = React.useState(false);
   const [sideMenu, setSideMenu] = React.useState(false);
   const [bottomMenu, setBottomMenu] = React.useState(false);
+
+  const isPlatform = () => {
+    if (typeof window !== "undefined") {
+      const platform = window.navigator.platform;
+      console.log(platform);
+
+      return !iosPlatform.includes(platform) ? "ios" : "android";
+    }
+  };
+
+  const Container = (props: any) => {
+    return (
+      <div
+        {...props}
+        className={`container mx-auto px-10 md:px-20 ${props.className}`}
+      >
+        {props.children}
+      </div>
+    );
+  };
 
   const handleDrawer = () => {
     setDrawer((prev: boolean) => !prev);
@@ -74,7 +85,11 @@ export default function Home() {
               <img src="/icon-social/youtube.png" alt="" />
             </div>
           </div>
-          <img src="/google.png" alt="" className="w-auto mr-8" />
+          {isPlatform() === "ios" ? (
+            <img src="/app-store.png" alt="" className="w-auto mr-8" />
+          ) : (
+            <img src="/google.png" alt="" className="w-auto mr-8" />
+          )}
         </div>
       </div>
       {/* Side Menu */}
@@ -84,7 +99,7 @@ export default function Home() {
         }`}
       >
         <div
-          className="arrow-side-menu cursor-pointer animate-pulse"
+          className="arrow-side-menu cursor-pointer "
           onClick={handleSideMenu}
         ></div>
         <div className=" p-8   bg-gray-950  inline-block border-2 border-orange-500 rounded-sm">
@@ -179,6 +194,9 @@ export default function Home() {
               supports
             </li>
           </ul>
+          <div className="flex justify-end pt-6">
+            <img src="/discord.png" alt="" />
+          </div>
         </div>
 
         <div className="relative">
@@ -260,12 +278,12 @@ export default function Home() {
             <div className="flex justify-center flex-col">
               <h3
                 className={archivoFont(
-                  "uppercase font-extrabold text-7xl mb-6"
+                  "uppercase font-extrabold text-7xl mb-6 text-center md:text-left"
                 )}
               >
                 WELCOME TO SVAKA LOKAPALA!
               </h3>
-              <p className={workSansFont("md:w-3/4")}>
+              <p className={workSansFont("md:w-3/4 text-center md:text-left")}>
                 Be the chosen Ksatriya and decide the fate of the realms!
                 Experience the first MOBA in South East Asia: Lokapala!
                 Developed by Indonesian game developer, Anantarupa Studios.
