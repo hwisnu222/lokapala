@@ -35,15 +35,27 @@ button {
 }
 
 .part-1 {
-  background-image: url("/welcome.png");
+  @apply bg-[url("/welcome.png")];
 }
 
 .part-2 {
-  background-image: url("/part-2.png");
+  background-image: linear-gradient(
+      0deg,
+      rgb(0, 0, 0) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("/part-2-mobile.png");
+  @apply md:bg-[url("/part-2.png")];
 }
 
 .part-3 {
-  background-image: url("/part-3.png");
+  background-image: linear-gradient(
+      0deg,
+      rgb(0, 0, 0) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("/part-3-mobile.png");
+  @apply md:bg-[url("/part-3.png")];
 }
 
 .overlay-top {

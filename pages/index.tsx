@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { Archivo, Work_Sans } from "next/font/google";
-import { FaArrowRight, FaBars, FaXmark } from "react-icons/fa6";
+import { FaBars, FaXmark, FaCaretRight } from "react-icons/fa6";
 
 const archivo = Archivo({ subsets: ["latin"] });
 const work = Work_Sans({ subsets: ["latin"] });
 
 import Logo from "@/assets/logo.png";
 import LokapalaLogo from "@/assets/lokapala-logo.png";
+import AnantarupaLogo from "@/assets/logo-anantarupa.png";
 import clsx from "clsx";
 
 const iosPlatform = ["iPhone", "iPad", "iPod"];
@@ -27,9 +28,8 @@ export default function Home() {
   const isPlatform = () => {
     if (typeof window !== "undefined") {
       const platform = window.navigator.platform;
-      console.log(platform);
 
-      return !iosPlatform.includes(platform) ? "ios" : "android";
+      return iosPlatform.includes(platform) ? "ios" : "android";
     }
   };
 
@@ -60,10 +60,10 @@ export default function Home() {
       {/* bottom menu mobile */}
       <div className="bottom-menu mx-4 rounded-full z-30 fixed bottom-2 md:hidden flex border-b-2 border-orange-500 bg-gray-950">
         <div
-          className="rounded-full bg-white p-4 flex justify-center items-center"
+          className="rounded-full bg-white p-4 flex justify-center items-center cursor-pointer"
           onClick={handleBottomMenu}
         >
-          <FaArrowRight
+          <FaCaretRight
             className={`text-6xl text-orange-500 ${
               bottomMenu ? "rotate-0" : "rotate-180"
             }`}
@@ -86,9 +86,9 @@ export default function Home() {
             </div>
           </div>
           {isPlatform() === "ios" ? (
-            <img src="/app-store.png" alt="" className="w-auto mr-8" />
+            <img src="/app-store.png" alt="" className="w-auto mr-8 w-[40%]" />
           ) : (
-            <img src="/google.png" alt="" className="w-auto mr-8" />
+            <img src="/google.png" alt="" className="w-auto mr-8 w-[40%]" />
           )}
         </div>
       </div>
@@ -152,7 +152,9 @@ export default function Home() {
         {/* header mobile */}
         <header className="bg-gray-950  md:hidden sticky top-0 z-30">
           <Container className="flex justify-between items-center">
-            <div></div>
+            <div>
+              <Image src={AnantarupaLogo} fill={false} height={40} alt="logo" />
+            </div>
             <h3>
               <Image src={LokapalaLogo} fill={false} height={80} alt="logo" />
             </h3>
@@ -304,7 +306,7 @@ export default function Home() {
           </Container>
         </div>
 
-        <div className="part-2 relative bg-left md:bg-center  md:object-cover width-full md:-mt-[70px]">
+        <div className="part-2 relative h-[700px] md:h-auto bg-bottom md:bg-center  md:object-cover width-full md:-mt-[70px]">
           {/* <div className="overlay-right absolute top-0 w-full h-full"></div> */}
           <Container className="grid md:grid-cols-2 gap-6  h-full">
             <div></div>
@@ -326,10 +328,10 @@ export default function Home() {
           </Container>
         </div>
 
-        <div className="part-3  relative mt-2 md:bg-center bg-right md:bg-no-repeat object-cover  w-full">
+        <div className="part-3  relative mt-2 bg-top h-[900px] lg:bg-cover md:h-auto md:bg-no-repeat object-cover  w-full">
           <div className="overlay-left absolute top-0 w-full h-full"></div>
           <Container className="grid md:grid-cols-2 py-20 ">
-            <div className="flex justify-center flex-col items-start z-10">
+            <div className="flex justify-end md:justify-center flex-col h-[800px] md:h-auto items-start z-10">
               <h3
                 className={archivoFont(
                   "uppercase font-extrabold text-7xl mb-6 "
