@@ -16,10 +16,6 @@
   }
 }
 
-
-
-
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -28,62 +24,74 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    @apply text-white bg-gray-950 bg-gray-950 -z-[100];
+  @apply text-white bg-gray-950 bg-gray-950 -z-[100];
 }
 
-
-button{
+button {
   background-image: url("/button.png");
   width: auto;
   background-repeat: round;
-  @apply py-4 text-lg px-16 object-cover inline-block uppercase hover:opacity-80 font-bold;
+  @apply py-2 text-lg px-12 object-cover inline-block uppercase hover:opacity-80 font-bold;
 }
 
-
-.part-1{
+.part-1 {
   background-image: url("/welcome.png");
-
 }
 
-.part-2{
+.part-2 {
   background-image: url("/part-2.png");
 }
 
-.part-3{
+.part-3 {
   background-image: url("/part-3.png");
 }
 
-.overlay-top{
+.overlay-top {
   height: 100vh;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.26) 0%, rgba(0,212,255,0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.26) 0%,
+    rgba(0, 212, 255, 0) 100%
+  );
 }
 
-.overlay-left{
-  background: linear-gradient(90deg, rgba(0,0,0,0.5018382352941176) 0%, rgba(0,212,255,0) 100%);
+.overlay-left {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5018382352941176) 0%,
+    rgba(0, 212, 255, 0) 100%
+  );
 }
 
-.overlay-right{
-  background: linear-gradient(90deg, rgba(0,212,255,0) 0%,rgba(0,0,0,0.5018382352941176)  100%);
+.overlay-right {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 0) 0%,
+    rgba(0, 0, 0, 0.5018382352941176) 100%
+  );
 }
 
-.overlay-slide{
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.479) 0%,rgba(0,0,0,0.5018382352941176)  100%);
+.overlay-slide {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.479) 0%,
+    rgba(0, 0, 0, 0.5018382352941176) 100%
+  );
 }
 
-li{
+li {
   @apply hover:text-orange-500 cursor-pointer font-extrabold;
 }
 
-.icon-wrap{
+.icon-wrap {
   @apply bg-orange-400 rounded-full flex justify-center items-center w-[42px] h-[42px] hover:bg-orange-600 cursor-pointer;
 }
 
-footer{
+footer {
   background-image: url("/footer.png");
 }
 
-
-.news:hover  h3{
+.news:hover h3 {
   @apply text-orange-500;
 }
 
@@ -97,94 +105,109 @@ footer{
   clip-path: polygon(0% 0%, 100% 0, 100% 81%, 82% 100%, 0% 100%);
 }
 
-.frame-youtube{
+.frame-youtube {
   background-image: url("/border-frame.png");
 }
 
-.drawer{
+.drawer {
+  transition: all 0.5s ease-in-out;
+}
+
+.arrow-side-menu {
+  border-right: 25px solid #e4cbb4;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  height: 100px;
+  width: 0;
+}
+
+.side-menu {
   transition: all 0.5s ease-in-out;
 }
 
 @keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0);
-      opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
   }
 
   to {
-      transform: translate3d(0,0,0);
-      opacity: 0.60;
-      display: block;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.6;
+    display: block;
   }
 }
 
 @-webkit-keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0);
-      opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
   }
 
   to {
-      transform: translate3d(0,0,0);
-      opacity: 0.60;
-      display: block;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.6;
+    display: block;
   }
 }
-.event-slide-border:hover .event-desc{
+.event-slide-border:hover .event-desc {
   animation-name: fadeInUp;
   display: block;
   animation-duration: 0.3s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 0.3s;
-    -webkit-animation-fill-mode: both
-} 
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+}
 
-.event-slide-border:hover .overlay-slide{
+.event-slide-border:hover .overlay-slide {
   animation-name: fadeInUp;
   display: block;
   animation-duration: 0.3s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 0.3s;
-    -webkit-animation-fill-mode: both
-} 
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+}
 
-.event-slide{
+.event-slide-border:hover h3 {
+  @apply text-orange-500;
+}
+
+.event-slide {
   clip-path: polygon(0% 0%, 100% 0, 100% 81%, 82% 100%, 0% 100%);
 }
 
 @media only screen and (max-width: 280px) {
-  html{
+  html {
     font-size: 4px important;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  html{
+  html {
     font-size: 8px important;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  html{
+  html {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  html{
+  html {
     font-size: 14px;
   }
 }
 
 @media only screen and (max-width: 992px) {
-  html{
+  html {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  html{
+  html {
     font-size: 10px;
   }
 }
-
