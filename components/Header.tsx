@@ -67,9 +67,9 @@ export default function Header() {
             </div>
           </div>
           {isPlatform() === "ios" ? (
-            <img src="/app-store.png" alt="" className="w-auto mr-8 w-[40%]" />
+            <img src="/app-store.png" alt="" className="mr-8 w-[40%]" />
           ) : (
-            <img src="/google.png" alt="" className="w-auto mr-8 w-[40%]" />
+            <img src="/google.png" alt="" className="mr-8 w-[40%]" />
           )}
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function Header() {
               className="font-extrabold text-2xl uppercase hover:text-orange-500"
               key={index}
             >
-              Updated
+              {header}
             </li>
           ))}
         </ul>
