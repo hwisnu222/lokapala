@@ -42,12 +42,14 @@ export default function Home() {
           </video>
         </div>
         <Container className=" pb-12 md:h-[700px]">
-          <div className="mt-20 text-center flex flex-col items-center md:items-start  md:text-left z-10 md:w-5/6">
+          <div className="mt-40 text-center flex flex-col items-center md:items-start  md:text-left z-10 md:w-5/6">
             <h3 className="font-extrabold text-8xl uppercase drop-shadow-2xl">
               lokapala
             </h3>
             <h5
-              className={archivoFont("text-4xl uppercase font-extrabold mb-7")}
+              className={archivoFont(
+                "z-40 text-4xl uppercase font-extrabold mb-7"
+              )}
             >
               SAGA OF THE SIX REALMS
             </h5>
