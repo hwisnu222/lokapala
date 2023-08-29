@@ -1,12 +1,11 @@
 import React from "react";
+import clsx from "clsx";
 
 import { Archivo, Work_Sans } from "next/font/google";
-import { FaBars, FaXmark, FaCaretRight } from "react-icons/fa6";
 
 const archivo = Archivo({ subsets: ["latin"] });
 const work = Work_Sans({ subsets: ["latin"] });
 
-import clsx from "clsx";
 import Svaka from "@/components/Svaka";
 import Lokapala from "@/components/Lokapala";
 import Ksatriya from "@/components/Ksatriya";
@@ -58,7 +57,7 @@ export default function Home() {
               will emerge victorious and rewrite the future of mankind and
               beyond?
             </p>
-            <div className="hidden flex gap-4 md:flex-row flex-col items-center uppercase font-extrabold text-xl">
+            <div className="hidden  gap-4 md:flex-row flex-col items-center uppercase font-extrabold text-xl">
               <p>tersedia di</p>
               <div className="flex gap-2 items-center">
                 <div className="cursor-pointer ">
@@ -75,15 +74,10 @@ export default function Home() {
             </div>
           </div>
         </Container>
-
         <Svaka />
-
         <Lokapala />
-
         <Ksatriya />
-
         <UpdatePost />
-
         <Footer />
       </div>
     </>
