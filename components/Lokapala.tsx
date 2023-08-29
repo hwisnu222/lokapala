@@ -4,7 +4,7 @@ import { archivoFont, workSansFont } from "@/fonts";
 
 export default function Lokapala() {
   return (
-    <section className="part-2 relative h-[600px] bg-cover md:bg-auto bg-no-repeat bg-top md:h-auto  md:bg-center  md:object-cover width-full -mt-[100px] md:-mt-[70px]">
+    <section className="part-2 relative h-[600px] bg-cover lg:bg-cover md:bg-auto bg-no-repeat bg-top md:h-auto  md:bg-center  md:object-cover width-full -mt-[100px] md:-mt-[100px]">
       {/* <div className="overlay-right absolute top-0 w-full h-full"></div> */}
       <Container className="grid md:grid-cols-2 gap-6  h-full">
         <div></div>

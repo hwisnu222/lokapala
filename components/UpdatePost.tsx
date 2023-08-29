@@ -7,7 +7,11 @@ export default function UpdatePost() {
       {Array.from({ length: 2 }).map((_, index) => (
         <div className="news hover:border-orange-500 border my-2" key={index}>
           <div className="overflow-hidden">
-            <img src="/thumbnail/cat.png" alt="" className="origin-center" />
+            <img
+              src="/thumbnail/cat.png"
+              alt=""
+              className="origin-center w-full"
+            />
           </div>
           <div className="text-center p-6">
             <h3 className="uppercase font-extrabold text-3xl">Hot update</h3>
