@@ -8,7 +8,7 @@ export default function Lokapala() {
       {/* <div className="overlay-right absolute top-0 w-full h-full"></div> */}
       <Container className="grid md:grid-cols-2 gap-6  h-full">
         <div></div>
-        <div className="flex justify-center pb-16 pt-44 flex-col items-start z-20">
+        <div className="flex justify-end md:justify-center pb-16 pt-44 flex-col items-start z-20">
           <h3 className={archivoFont("uppercase font-extrabold text-7xl mb-6")}>
             what is lokapala?
           </h3>
