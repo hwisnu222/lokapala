@@ -75,7 +75,7 @@ export default function Header() {
       </div>
       {/* Side Menu */}
       <div
-        className={`side-menu hidden md:flex fixed  items-center right-4 translate-y-[20%] z-[100] ${
+        className={`side-menu hidden md:flex fixed  items-center right-4 translate-y-[40%] z-[100] ${
           sideMenu ? "" : "-mr-[250px]"
         }`}
       >
