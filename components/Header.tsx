@@ -127,7 +127,7 @@ export default function Header() {
       </header>
 
       {/* header mobile */}
-      <header className="bg-gray-950  md:hidden sticky top-0 z-30">
+      <header className="bg-gray-950  md:hidden sticky top-0 z-[60]">
         <Container className="flex justify-between items-center">
           <div>
             <Image src={AnantarupaLogo} fill={false} height={40} alt="logo" />
