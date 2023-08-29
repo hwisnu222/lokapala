@@ -8,7 +8,7 @@ import LokapalaLogo from "@/assets/lokapala-logo.png";
 import AnantarupaLogo from "@/assets/logo-anantarupa.png";
 import Container from "./Container";
 
-const menuHeader = ["game", "ksatriya", "news", "support"];
+export const menuHeader = ["game", "ksatriya", "news", "support"];
 
 const iosPlatform = ["iPhone", "iPad", "iPod"];
 

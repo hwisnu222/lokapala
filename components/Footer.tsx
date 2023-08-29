@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "@/components/Container";
+import { menuHeader } from "./Header";
 
 export default function Footer() {
   return (
@@ -15,16 +16,14 @@ export default function Footer() {
             </h3>
             <div>
               <ul>
-                <li className="py-4 text-xl text-center md:text-left">
-                  Updates
-                </li>
-                <li className="py-4 text-xl text-center md:text-left">Event</li>
-                <li className="py-4 text-xl text-center md:text-left">
-                  Ksatriya
-                </li>
-                <li className="py-4 text-xl text-center md:text-left">
-                  Support
-                </li>
+                {menuHeader.map((header: string, index: number) => (
+                  <li
+                    className="py-4 text-xl text-center md:text-left capitalize"
+                    key={index}
+                  >
+                    {header}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
