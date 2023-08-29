@@ -40,7 +40,7 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <Container className=" pb-12 md:h-[700px]">
+        <Container className=" pb-12 md:h-[620px]">
           <div className="mt-40 text-center flex flex-col items-center md:items-start  md:text-left z-10 md:w-5/6">
             <h3 className="font-extrabold text-8xl uppercase drop-shadow-2xl">
               lokapala

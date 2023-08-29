@@ -108,6 +108,7 @@ footer {
 
 .event-slide-border {
   clip-path: polygon(0% 0%, 100% 0, 100% 81%, 82% 100%, 0% 100%);
+  display: inline;
 }
 
 .frame-youtube {

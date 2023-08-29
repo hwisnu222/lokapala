@@ -5,7 +5,7 @@ import { archivoFont, workSansFont } from "@/fonts";
 export default function Svaka() {
   return (
     <section className="part-1 pb-32 bg-cover object-cover w-full">
-      <Container className="grid md:grid-cols-3 gap-4 mb-20">
+      <Container className="grid md:grid-cols-3 items-center justify-center gap-4 mb-20">
         {Array.from({ length: 3 }).map((_, index: number) => (
           <div
             key={index}
