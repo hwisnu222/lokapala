@@ -4,7 +4,7 @@ import { archivoFont, workSansFont } from "@/fonts";
 
 export default function Ksatriya() {
   return (
-    <section className="part-3  relative mt-2 bg-top h-[800px] lg:bg-cover md:h-auto md:bg-no-repeat object-cover  w-full">
+    <section className="part-3  relative -mt-[190px] md:mt-2 bg-top h-[800px] bg-cover lg:bg-cover md:h-auto md:bg-no-repeat object-cover  w-full">
       <div className="overlay-left absolute top-0 w-full h-full"></div>
       <Container className="grid md:grid-cols-2 py-20 ">
         <div className="flex justify-end md:justify-center flex-col h-[700px] md:h-auto items-start z-10">
