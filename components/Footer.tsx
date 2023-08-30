@@ -11,7 +11,7 @@ export default function Footer() {
       <Container>
         <div className="grid md:grid-cols-4 py-8 gap-16 md:gap4">
           <div className="flex justify-center items-center w-full">
-            <img src="/logo-footer.png" alt="" className="w-full" />
+            <img src="/logo-footer.png" alt="" className="w-3/4" />
           </div>
           <div className="flex flex-col md:justify-start items-center md:items-start ">
             <h3 className="mb-6 font-extrabold text-2xl uppercase text-orange-500">
