@@ -8,7 +8,7 @@ export default function UpdatePost() {
         <div className="news hover:border-orange-500 border my-2" key={index}>
           <div className="overflow-hidden">
             <img
-              src="/thumbnail/cat.png"
+              src={index == 0 ? "/thumbnail/cat.png" : "/thumbnail/event.png"}
               alt=""
               className="origin-center w-full"
             />
