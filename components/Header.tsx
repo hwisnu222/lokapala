@@ -80,7 +80,7 @@ export default function Header() {
         }`}
       >
         <div
-          className="arrow-side-menu cursor-pointer "
+          className={`arrow-side-menu cursor-pointer ${sideMenu ? "" : "mr-4"}`}
           onClick={handleSideMenu}
         ></div>
         <div className=" p-8   bg-gray-950  inline-block border-2 border-orange-500 rounded-sm">

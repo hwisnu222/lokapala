@@ -129,6 +129,7 @@ footer {
   border-bottom: 25px solid transparent;
   height: 100px;
   width: 0;
+  transition: margin 0.5s ease-in-out;
 }
 
 .side-menu {
