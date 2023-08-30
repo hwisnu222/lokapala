@@ -1,6 +1,9 @@
 import React from "react";
 import Container from "@/components/Container";
 import { menuHeader } from "./Header";
+import { workSansFont } from "@/fonts";
+
+const menuFooter = ["game", "news", "pres kit", "ksatriya", "support"];
 
 export default function Footer() {
   return (
@@ -10,15 +13,17 @@ export default function Footer() {
           <div className="flex justify-center items-center w-full">
             <img src="/logo-footer.png" alt="" className="w-full" />
           </div>
-          <div className="flex flex-col md:justify-start items-center">
+          <div className="flex flex-col md:justify-start items-start ">
             <h3 className="mb-6 font-extrabold text-2xl uppercase text-orange-500">
               menu
             </h3>
             <div>
-              <ul>
-                {menuHeader.map((header: string, index: number) => (
+              <ul className="grid grid-cols-2 grid-rows-3 gap-4">
+                {menuFooter.map((header: string, index: number) => (
                   <li
-                    className="py-4 text-xl text-center md:text-left capitalize"
+                    className={workSansFont(
+                      "md:pr-6 text-medium font-normal text-center md:text-left capitalize"
+                    )}
                     key={index}
                   >
                     {header}
@@ -55,11 +60,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="py-6 border-t border-orange-500 flex md:flex-row flex-col items-center gap-4 justify-between">
+        <div className="py-6 border-t border-white flex md:flex-row flex-col items-center gap-4 justify-between">
           <span>Copyright © 2022 Anantarupa Studios. All Rights Reserved.</span>
           <ul className="flex gap-4">
-            <li>Terms of Use</li>
-            <li>Privacy Policy</li>
+            <li className="font-normal">Terms of Use</li>
+            <li className="font-normal">Privacy Policy</li>
           </ul>
         </div>
       </Container>
