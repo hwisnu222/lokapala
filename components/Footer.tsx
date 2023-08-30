@@ -62,9 +62,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="py-6 border-t border-white flex md:flex-row flex-col items-center gap-4 justify-between">
-          <span>Copyright © 2022 Anantarupa Studios. All Rights Reserved.</span>
-          <ul className="flex gap-4">
+        <div className="py-12 border-t border-white flex md:flex-row flex-col items-center gap-4 justify-between">
+          <span className="font-light text-sm">
+            Copyright © 2022 Anantarupa Studios. All Rights Reserved.
+          </span>
+          <ul className="flex gap-4 text-sm">
             <li className="font-normal">Terms of Use</li>
             <li className="font-normal">Privacy Policy</li>
           </ul>
