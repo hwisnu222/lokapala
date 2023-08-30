@@ -13,16 +13,18 @@ export default function Footer() {
           <div className="flex justify-center items-center w-full">
             <img src="/logo-footer.png" alt="" className="w-full" />
           </div>
-          <div className="flex flex-col md:justify-start items-start ">
+          <div className="flex flex-col md:justify-start items-center md:items-start ">
             <h3 className="mb-6 font-extrabold text-2xl uppercase text-orange-500">
               menu
             </h3>
             <div>
-              <ul className="grid grid-cols-2 grid-rows-3 gap-4">
+              <ul className="grid grid-cols-3 md:px-auto md:grid-cols-2 grid-rows-3 gap-9 md:gap-4">
                 {menuFooter.map((header: string, index: number) => (
                   <li
                     className={workSansFont(
-                      "md:pr-6 text-medium font-normal text-center md:text-left capitalize"
+                      `md:pr-6 text-medium px-2  font-normal text-center md:text-left capitalize ${
+                        [1, 4].includes(index) && "border-x md:border-x-0"
+                      }`
                     )}
                     key={index}
                   >
