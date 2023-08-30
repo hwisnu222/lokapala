@@ -13,6 +13,10 @@ import UpdatePost from "@/components/UpdatePost";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import Header from "@/components/Header";
+import dynamic from "next/dynamic";
+const WidgetBotDiscord = dynamic(import("@/components/WidgetBotDiscord"), {
+  ssr: false,
+});
 
 const workSansFont = (classname: string) => {
   return clsx(work.className, classname);
@@ -78,6 +82,7 @@ export default function Home() {
         <Lokapala />
         <Ksatriya />
         <UpdatePost />
+        <WidgetBotDiscord />
         <Footer />
       </div>
     </>
